@@ -10,7 +10,7 @@
     "tauri": "tauri"
   },
   "dependencies": {
-    "@hoppscotch/ui": "^0.2.1",
+    "@hoppscotch/ui": "^0.2.5",
     "@tauri-apps/api": "^2.0.2",
     "@tauri-apps/plugin-shell": "^2.0.0",
     "@vueuse/core": "^11.1.0",
