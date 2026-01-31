@@ -33,7 +33,7 @@ RUN go build
 
 
 
-FROM alpine:3.19.7 AS base_builder
+FROM alpine:3.23.3 AS base_builder
 RUN apk add nodejs curl
 
 # Install NPM from source, as Alpine version is old and has dependency vulnerabilities
@@ -64,7 +64,7 @@ RUN pnpm --filter=hoppscotch-backend deploy /dist/backend --prod --legacy
 WORKDIR /dist/backend
 RUN pnpm exec prisma generate
 
-FROM alpine:3.19.7 AS backend
+FROM alpine:3.23.3 AS backend
 RUN apk add nodejs curl
 
 # Install NPM from source, as Alpine version is old and has dependency vulnerabilities
@@ -107,7 +107,7 @@ RUN cargo build --release
 
 
 
-FROM alpine:3.19.7 AS app
+FROM alpine:3.23.3 AS app
 RUN apk add nodejs curl
 
 # Install NPM from source, as Alpine version is old and has dependency vulnerabilities
@@ -150,7 +150,7 @@ RUN pnpm run build --outDir dist-subpath-access --base /admin/
 
 
 
-FROM alpine:3.19.7 AS sh_admin
+FROM alpine:3.23.3 AS sh_admin
 RUN apk add nodejs curl
 
 # Install NPM from source, as Alpine version is old and has dependency vulnerabilities
@@ -176,7 +176,7 @@ WORKDIR /site
 
 CMD ["node","/site/prod_run.mjs"]
 
-FROM alpine:3.19.7 AS aio
+FROM alpine:3.23.3 AS aio
 
 RUN apk add nodejs curl
 
